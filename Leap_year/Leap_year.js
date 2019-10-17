@@ -9,5 +9,5 @@
 *******************************************************************************************************************/
 const L_year = require('../Leap_year/Leap_yearBL')
 let input = require('readline-sync')
-let year = input.question('Enter the year:')
+let year = input.questionInt('Enter the year:')
 L_year.Leap_yr(year);

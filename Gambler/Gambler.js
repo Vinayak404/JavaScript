@@ -9,7 +9,7 @@
 *******************************************************************************************************************/
 const Gamb = require('../Gambler/GamblerBL')
 let input = require('readline-sync')
-let stake = input.question('Enter the stake amount:')
-let goal = input.question('Enter the goal:')
-let Num = input.question('Enter the max no of trials:')
+let stake = input.questionInt('Enter the stake amount:')
+let goal = input.questionInt('Enter the goal:')
+let Num = input.questionInt('Enter the max no of trials:')
 Gamb.Gamble(stake, goal, Num)

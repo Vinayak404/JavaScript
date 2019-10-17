@@ -9,5 +9,5 @@
 *******************************************************************************************************************/
 const Flip = require('../Flip_coin/FlipcoinBL')
 let input = require('readline-sync')
-let toss = input.question('Enter the number of Tosses:')
+let toss = input.questionInt('Enter the number of Tosses:')
 Flip.Flip_coin(toss);

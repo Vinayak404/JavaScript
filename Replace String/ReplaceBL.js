@@ -6,7 +6,7 @@
 module.exports.replace_str = (str1) => {
     try {
         let str2 = "Hello name, How are you?";
-        if (str1.length > 4) {
+        if (str1.length >= 3) {
             return (str2.replace('name', str1))
         } else {
             console.log('Please enter min 3 char ')

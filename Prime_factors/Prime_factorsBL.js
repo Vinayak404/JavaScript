@@ -6,7 +6,7 @@
 PrFac = (Num) => {
     try {
         if (Num <= 0) {
-            console.log("Please use positive numbers")
+            console.log("Please use positive numbers");
         } else {
             for (var i = 2; i <= Num; i++) {
                 while (Num % i == 0) {

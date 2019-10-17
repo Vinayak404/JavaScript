@@ -9,5 +9,5 @@
 *******************************************************************************************************************/
 const Coupon_Nos = require('../Coupon_Nums/CouponNosBL')
 let input = require('readline-sync')
-let Num = input.question("Enter the no. of coupons required:")
+let Num = input.questionInt("Enter the no. of coupons required:")
 Coupon_Nos.R_Coupon(Num)

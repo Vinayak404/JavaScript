@@ -9,5 +9,5 @@
 *******************************************************************************************************************/
 const PFac = require('../Prime_factors/Prime_factorsBL')
 let input = require('readline-sync')
-let Num = input.question('Please Enter a number to find its Prime Factors:')
+let Num = input.questionInt('Please Enter a number to find its Prime Factors:')
 console.log(PFac.PrFac(Num))

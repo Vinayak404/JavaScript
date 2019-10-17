@@ -9,7 +9,7 @@
 *******************************************************************************************************************/
 const Pow = require('../Powers_of_2/PowersBL')
 let input = require('readline-sync')
-let Num = input.question('Enter a number:')
+let Num = input.questionInt('Enter a number:')
 console.log(Pow.Pow_of_2(Num))
 
 

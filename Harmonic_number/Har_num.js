@@ -9,5 +9,5 @@
 *******************************************************************************************************************/
 const Harm = require('../Harmonic_number/Har_BL')
 let input = require('readline-sync')
-let Num = input.question('Please enter a number to find its Harmonic Number:')
+let Num = input.questionInt('Please enter a number to find its Harmonic Number:')
 console.log(Harm.Har(Num))

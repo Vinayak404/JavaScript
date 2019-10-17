@@ -8,6 +8,6 @@
 * @since : 10-October-2019
 *******************************************************************************************************************/
 let read = require('readline-sync');
-const replac = require('../Replace String/ReplaceBL')
-let str1 = read.question('Please enter your name :');
+const replac = require('../Replace String/ReplaceBL');
+let str1 = read.questionInt('Please enter your name :');
 console.log(replac.replace_str(str1));
