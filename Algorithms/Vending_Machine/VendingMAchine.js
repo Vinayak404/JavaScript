@@ -1,13 +1,13 @@
 /********************************************************************************************************************
-* @Execution : default node : cmd> Leap_year.js
+* @Execution : default node : cmd>VendingMAchine.js
 * @Purpose : to study the functionals working.
-* @description :Check whether Num is a leap year or not.
-* @overview : to find whether Num is a leap year or not.
+* @description :To Return the cash for the given amount with least number of bills.
+* @overview : Returns the least possible currency bills and thier quantity.
 * @author : Vinayaka S V <vinayakavastrad@gmail.com>
 * @version : 1.0
-* @since : 11-October-2019
+* @since : 16-October-2019
 *******************************************************************************************************************/
-const L_year = require('../Leap_year/Leap_yearBL')
+const VM = require('../Vending_Machine/VendingMachineBL')
 let input = require('readline-sync')
-let year = input.questionInt('Enter the year:')
-L_year.Leap_yr(year);
+num = input.questionInt("please enter the amount:")
+VM.VendingMachine(num)
