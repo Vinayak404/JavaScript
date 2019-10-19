@@ -13,6 +13,7 @@ const bSearch = require('../../Utility/UtilitySearchSort')
 let input = require('readline-sync')
 text = fs.readFileSync('../File_Search/file.txt');
 let ip = text.toString().split(' ');
+console.log(ip)
 let arr = ip.sort();
 console.log(arr);
 let key = input.question("Enter the string to be searched:")
