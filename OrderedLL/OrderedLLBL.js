@@ -8,13 +8,16 @@ fileArr.forEach(element => {
     lLIst.sortedInsert(parseInt(element))
 });
 lLIst.printList()
-let input = require('readline-sync')
-let num = input.questionInt("Enter the num to be found: ")
-if (lLIst.findElement(num)) {
-    lLIst.deleteElement(num)
-} else {
-    lLIst.sortedInsert(num)
+
+ifFoundAddElseDel = (num) => {
+    if (lLIst.findElement(num)) {
+        lLIst.deleteElement(num)
+    } else {
+        console.log("Number not found!")
+        lLIst.sortedInsert(num)
+    }
+    arr = lLIst.getArr()
+    fs.writeFileSync("../OrderedLL/fileDS2.txt", arr.join(' '))
+    lLIst.printList()
 }
-arr = lLIst.getArr()
-fs.writeFileSync("../OrderedLL/fileDS2.txt", arr.join(' '))
-lLIst.printList()
+module.exports = { ifFoundAddElseDel }

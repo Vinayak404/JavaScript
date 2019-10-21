@@ -92,7 +92,7 @@ class LinkedList {
             this.size--
         } else {
             return null
-        }
+        } this.size--
     }
     deleteLast() {
         if (this.head) {
@@ -103,7 +103,7 @@ class LinkedList {
                 while (current.next.next) {
                     current = current.next
                 } current.next = null
-            }
+            } this.size--
         } else {
             console.log('Nothing to delete')
         }
@@ -122,13 +122,14 @@ class LinkedList {
             return false
         } else if (this.head.data == data) {
             this.head = current.next
+            this.size--
         } else {
             let prev = null;
             while (current.data != data) {
                 prev = current;
                 current = current.next;
             } prev.next = current.next
-        }
+        } this.size--
     }
 }
 
