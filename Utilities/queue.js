@@ -40,48 +40,30 @@ class Queue {
             current = current.next;
         }
     }
-    // getArr() {
-    //     let arr = []
-    //     let current = this.first;
-    //     while (current !== null) {
-    //         arr.push(current.data)
-    //         current = current.next;
-    //     } return arr
-    // }
-    Bank() {
-        var Bal = 0;
-        for (let i = 0; i < this.size; i++) {
-            let out = Queue.dequeue()
-            if (out.data[0] == 'D') {
-                Bal = Bal + out.data[1];
-            } else if (out.data[0] == 'W' && Bal - out.data[1] < 0) {
-                console.log('Low balance!')
-            } else if (out.data[0] == 'W' && Bal - out.data[1] >= 0) {
-                Bal = Bal - out.data[1];
-            }
-        }
-        console.log("Balance=", Bal)
+    isEmpty() {
+        return this.size == 0
     }
-    // allBal(Bal) {
-    //     for (let i = 0; i < Queue.size; i++) {
-    //         let curr = this.first
-    //         if (curr.data[1] < Bal) {
-    //             return false
-    //         } else {
-    //             curr = curr.next
-    //         }
-    //     } return true
-    // }
-    // allW() {
-    //     let curr = this.first;
-    //     for (let i = 0; i < Queue.size; i++) {
-    //         if (curr.data[0] == 'D') {
-    //             return false;
-    //         } else {
-    //             curr = curr.next
-    //         }
-    //     } return true
-    // }
+    deleteLast() {
+        if (this.head) {
+            let current = this.head;
+            if (current.next == null) {
+                let temp = current;
+                this.head = null
+                this.size--
+                return temp
+            } else {
+                while (current.next.next) {
+                    current = current.next
+                } let temp = current.next
+                current.next = null
+                this.size--
+                return temp;
+            }
+        } else {
+            console.log('Nothing to delete')
+        }
+    }
 
 }
 module.exports = { Queue, Node }
+let Que = new Queue;
