@@ -1,2 +1,2 @@
 const PN = require('../2D_Prime_nums/prime2DArBL')
-PN.primeTwoD(1000)
+PN.prime2D(1000)

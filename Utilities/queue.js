@@ -1,5 +1,3 @@
-
-
 class Node {
     constructor(data) {
         this.data = data;
@@ -27,11 +25,29 @@ class Queue {
         this.size += 1;
         return node;
     }
+    deQ() {
+        if (this.first) {
+            let temp = this.first;
+            this.first = this.first.next;
+            this.size--
+            return temp
+        } else {
+            return false
+        }
+    }
     dequeue() {
-        let temp = this.first;
-        this.first = this.first.next;
-        this.size -= 1;
-        return temp;
+        if (!this.first) return false
+        else if (!this.next) {
+            let temp = this.first;
+            this.first = null;
+            this.size -= 1;
+            return temp;
+        } else if (this.next) {
+            let temp = this.first;
+            this.first = this.first.next;
+            this.size -= 1;
+            return temp;
+        }
     }
     PrintQ() {
         let current = this.first;
@@ -63,7 +79,5 @@ class Queue {
             console.log('Nothing to delete')
         }
     }
-
 }
 module.exports = { Queue, Node }
-let Que = new Queue;
