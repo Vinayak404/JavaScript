@@ -1,6 +1,6 @@
 let hashF = require('../Hashing_function/hashing_funcBL')
 const input = require('readline-sync')
-let Num = input.question("Enter the number to find:")
+let Num = input.questionInt("Enter the number to find:")
 const fs = require('fs')
 N = fs.readFileSync('../Hashing_function/fileDS3.txt')
 console.log(N)
