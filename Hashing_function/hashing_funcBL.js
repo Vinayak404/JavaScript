@@ -14,11 +14,9 @@ hashFunc = (N, Num) => {
         console.log(i)
         arr[i].printList()
     }
-    let j = Num % 11;
-    if (!arr[j].sortedInstDupFalsOrAdd(Num)) {
-        arr[j].deleteElement(Num)
-    }
     var finalArr = []
+    let j = Num % 11;
+    arr[j].sortedInstDupFalsOrAdd(Num)
     for (let i in arr) {
         let ar2 = arr[i].getArr()
         for (let j in ar2) {

@@ -164,14 +164,14 @@ class LinkedList {
         let node = new Node(data);
         let current = this.head;
         if (this.head && node.data == current.data) {
-            return false
+            this.deleteElement(data)
         }
         else if (!this.head || node.data < current.data) {
             node.next = this.head;
             this.head = node
             this.size++
         } else if (current.next && node.data == current.next.data) {
-            return false
+            this.deleteElement(data)
         } else {
             while (current.next && node.data > current.next.data) {
                 current = current.next;
@@ -186,3 +186,7 @@ class LinkedList {
 module.exports = {
     LinkedList, Node
 }
+let d = new LinkedList
+d.sortedInstDupFalsOrAdd(3)
+d.sortedInstDupFalsOrAdd(3)
+d.printList()
