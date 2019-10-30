@@ -3,77 +3,83 @@ const fs = require("fs")
 addressOperations = (jsonFile) => {
     let N = input.questionInt("press \n '1' to edit person \n '2' to add new person \n '3' to delete person \n '4' to search by name\n'5' to print all contacts \n :")
     switch (N) {
-        case 1: {
-            let i = input.questionInt("Enter the index number of the person:")
-            let content = input.questionInt("press \n '1' to edit FirstName \n '2' to edit LastName \n '3' to edit Adress \n '4' to edit City \n '5'to edit PhoneNumber\n:")
-            console.log(jsonFile[i].FirstName)
-            switch (content) {
-                case 1: {
-                    let update = input.question("Enter the new FirstName:")
-                    console.log(jsonFile[i].FirstName);
-                    jsonFile[i].FirstName = update;
-                    fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile));
-                    break;
-                }
-                case 2: {
-                    let update = input.question("Enter the new LastName:");
-                    jsonFile[i].LastName = update;
-                    fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile))
-                    break;
-                }
-                case 3: {
-                    let update = input.question("enter new adress:");
-                    jsonFile[i].Address = update;
-                    fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile))
-                    break;
-                }
-                case 4: {
-                    let update = input.question("enter new City:");
-                    jsonFile[i].City = update;
-                    fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile))
-                    break;
-                }
-                case 5: {
-                    let update = input.question("enter new PhoneNumber:");
-                    jsonFile[i].PhoneNum = update;
-                    fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile))
-                    break;
-                }
-            }
+        case 1:
+            editPerson(jsonFile);
             break;
-        }
-        case 2: {
-            let newPerson = {};
-            newPerson.FirstName = input.question("Enter firstName:")
-            newPerson.LastName = input.question("Enter LastName:")
-            newPerson.Address = input.question("Enter Address:")
-            newPerson.City = input.question("Enter City:")
-            newPerson.PhoneNum = input.question("Enter PhoneNum:")
-            jsonFile.push(newPerson)
-            fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile))
+        case 2:
+            addPerson(jsonFile);
             break;
-        }
-        case 3: {
-            let i = input.question("Enter the index number to delete the contact:")
-            jsonFile.pop(i)
-            fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile))
+        case 3:
+            deletePerson(jsonFile);
             break;
-        }
-        case 4: {
-            let Name = input.question("Enter the First or Last name:")
-            jsonFile.forEach(nameInRecord => {
-                if (nameInRecord.FirstName.includes(Name) || nameInRecord.LastName.includes(Name))
-                    console.log(nameInRecord)
-            });
+        case 4:
+            searchByName(jsonFile);
             break;
-        }
-        case 5: {
-            jsonFile.forEach(person => {
-                console.log(person)
-            });
-            break;
-        }
+        case 5:
+            printFile(jsonFile);
+            break
     }
+}
+editPerson = (jsonFile) => {
+    let i = input.questionInt("Enter the index number of the person:")
+    let content = input.questionInt("press \n '1' to edit FirstName \n '2' to edit LastName \n '3' to edit Adress \n '4' to edit City \n '5'to edit PhoneNumber\n:")
+    console.log(jsonFile[i])
+    let update = input.question("Enter the new feature:")
+    fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile));
+    switch (content) {
+        case 1:
+            jsonFile[i].FirstName = update;
+            break;
+        case 2:
+            jsonFile[i].LastName = update;
+            break;
+        case 3:
+            jsonFile[i].Address = update;
+            break;
+        case 4:
+            jsonFile[i].City = update;
+            break;
+        case 5:
+            jsonFile[i].PhoneNum = update;
+            break;
+    }
+    fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile));
+    return jsonFile;
+}
+addPerson = (jsonFile) => {
+    let newPerson = {};
+    newPerson.FirstName = input.question("Enter firstName:")
+    newPerson.LastName = input.question("Enter LastName:")
+    newPerson.Address = input.question("Enter Address:")
+    newPerson.City = input.question("Enter City:")
+    newPerson.PhoneNum = input.question("Enter PhoneNum:")
+    jsonFile.push(newPerson)
+    fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile))
+    return jsonFile;
+}
+deletePerson = (jsonFile) => {
+    let i = input.question("Enter the index number to delete the contact:")
+    jsonFile.pop(i)
+    fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile))
+    return jsonFile
+}
+searchByName = (jsonFile) => {
+    let Name = input.question("Enter the First or Last name:")
+    jsonFile.forEach(nameInRecord => {
+        if (nameInRecord.FirstName.includes(Name) || nameInRecord.LastName.includes(Name))
+            console.log(nameInRecord)
+    });
+}
+printFile = (jsonFile) => {
+    jsonFile.forEach(person => {
+        console.log(person)
+    });
+}
+groceryDisplayInventory = (jsonFile) => {
+    jsonFile.forEach(item => {
+        asset = parseInt(item.price) * parseInt(item.Weight)
+        console.log(item, "Asset =", asset)
+    });
 }
 groceryManagement = (jsonFile) => {
     let N = input.questionInt("press \n '1' to edit Inventory \n '2' to add new Inventory \n '3' to delete Inventory \n '4' to search by name\n'5' to print Inventory \n :")
@@ -136,7 +142,6 @@ groceryManagement = (jsonFile) => {
     }
 }
 regexp = () => {
-    const input = require('readline-sync');
     let name = input.question("Enter your name:")
     let fullName = input.question("Enter your full name:")
     let patt = /[a-zA-Z]/;
@@ -171,9 +176,11 @@ deckOfCards = (noOfCards) => {
         shuffledrank.forEach(ranks => {
             cards.push(suits + ' of ' + ranks)
         });
-
     });
     shuffledCards = cards.sort(() => Math.random() - 0.5)
+    console.log(distributeFor4(shuffledCards, noOfCards));
+}
+distributeFor4 = (shuffledCards, noOfCards) => {
     let player1 = []
     let player2 = []
     let player3 = []
@@ -188,11 +195,12 @@ deckOfCards = (noOfCards) => {
         let newCard4 = shuffledCards.pop();
         player4.push(newCard4);
     }
-    console.log(player1, player2, player3, player4)
+    return [player1, player2, player3, player4]
 }
 module.exports = {
     addressOperations,
     groceryManagement,
     regexp,
-    deckOfCards
+    deckOfCards,
+    groceryDisplayInventory
 }
