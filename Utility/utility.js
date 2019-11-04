@@ -142,27 +142,32 @@ groceryManagement = (jsonFile) => {
     }
 }
 regexp = () => {
+    const user = require('../regularExpressionDemonstration/regularExpressionGettersNSetters')
+    let person = new user.details;
     let name = input.question("Enter your name:")
     let fullName = input.question("Enter your full name:")
-    let patt = /[a-zA-Z]/;
+    let patt = /^[a-zA-Z]+$/;
     //check whether the input is string.
     while (!patt.test(name) || !patt.test(fullName)) {
         name = input.question("Enter your name(alphabets only) : ");
         fullName = input.question("Enter your full name(alphabets only) : ");
     }
+    person.setName(name)
+    person.setFullname(fullName)
     //check whether the input is 10 digit number.
     let mobilenumber = input.question("Entert your 10 digit mobile number:")
 
     while (isNaN(mobilenumber) || mobilenumber.length != 10) {
         mobilenumber = input.question("\nEnter valid phone number(10 digits only) : ");
     }
+    person.setphoneNumber(mobilenumber)
     //Replacing name, full name, mobileNumebr, date using regular expressions.
     var fs = require('fs');
     var line = String(fs.readFileSync("../regularExpressionDemonstration/regEx.txt"));
     var date = new Date();
-    line = line.replace("<<name>>", name);
-    line = line.replace("<<full name>>", fullName);
-    line = line.replace("xxxxxxxxxx", mobilenumber);
+    line = line.replace("<<name>>", person.getFirstName());
+    line = line.replace("<<full name>>", person.getLastName());
+    line = line.replace("xxxxxxxxxx", person.getPNum());
     line = line.replace("01-01-2016", date.toDateString());
     console.log(line);
 }

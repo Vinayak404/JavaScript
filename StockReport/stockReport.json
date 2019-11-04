@@ -1,0 +1,18 @@
+{
+    "Stock": [{
+            "name": "reliance",
+            "numberofshares": "3500",
+            "price": "45"
+        },
+        {
+            "name": "AshokLeyland",
+            "numberofshares": "1250",
+            "price": "175"
+        },
+        {
+            "name": "L&T",
+            "numberofshares": "2400",
+            "price": "112"
+        }
+    ]
+}

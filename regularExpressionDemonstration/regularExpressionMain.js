@@ -1,18 +1,16 @@
 /********************************************************************
- * @Execution    : addressBook.js
- * @description  : To read in details of contents.
+ * @Execution    : regularExpressionMain.js
+ * @description  : to return the grocery list in stock and its total value
  * @overview     : Object oriented program
- * @file         : addressBook
+ * @file         : regularExpressionDemonstration
  * @author       : Vinayaka S V<vinayakavastrad@gmail.com>
  * @version      : v12.10.0
- * @since        : 29-oct-2019
+ * @since        : 30-oct-2019
  *
  *********************************************************************/
 try {
-    const fs = require("fs");
     const Util = require("../Utility/utility")
-    let jsonFile = JSON.parse(fs.readFileSync("../adressBook/adressBook.json"))
-    Util.addressOperations(jsonFile)
+    Util.regexp()
 } catch (e) {
     console.log(e.message)
 }
