@@ -1,5 +1,6 @@
 const input = require("readline-sync")
 const fs = require("fs")
+//main function that takes in the file as input and calls different functions based upon the user input
 addressOperations = (jsonFile) => {
     let N = input.questionInt("press \n '1' to edit person \n '2' to add new person \n '3' to delete person \n '4' to search by name\n'5' to print all contacts \n :")
     switch (N) {
@@ -20,12 +21,12 @@ addressOperations = (jsonFile) => {
             break
     }
 }
+// takes in file as input(array) and edits one property of one particular object.
 editPerson = (jsonFile) => {
     let i = input.questionInt("Enter the index number of the person:")
     let content = input.questionInt("press \n '1' to edit FirstName \n '2' to edit LastName \n '3' to edit Adress \n '4' to edit City \n '5'to edit PhoneNumber\n:")
     console.log(jsonFile[i])
     let update = input.question("Enter the new feature:")
-    fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile));
     switch (content) {
         case 1:
             jsonFile[i].FirstName = update;
@@ -46,6 +47,7 @@ editPerson = (jsonFile) => {
     fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile));
     return jsonFile;
 }
+// adds a new object to the json file
 addPerson = (jsonFile) => {
     let newPerson = {};
     newPerson.FirstName = input.question("Enter firstName:")
@@ -57,12 +59,14 @@ addPerson = (jsonFile) => {
     fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile))
     return jsonFile;
 }
+// deletes a person in the json file
 deletePerson = (jsonFile) => {
     let i = input.question("Enter the index number to delete the contact:")
     jsonFile.pop(i)
     fs.writeFileSync("../adressBook/adressBook.json", JSON.stringify(jsonFile))
     return jsonFile
 }
+// search a person by the name
 searchByName = (jsonFile) => {
     let Name = input.question("Enter the First or Last name:")
     jsonFile.forEach(nameInRecord => {
@@ -70,17 +74,20 @@ searchByName = (jsonFile) => {
             console.log(nameInRecord)
     });
 }
+// prints all objects of json file
 printFile = (jsonFile) => {
     jsonFile.forEach(person => {
         console.log(person)
     });
 }
+// takes file(array) as input and prints each element , quantity and gross price
 groceryDisplayInventory = (jsonFile) => {
     jsonFile.forEach(item => {
         asset = parseInt(item.price) * parseInt(item.Weight)
         console.log(item, "Asset =", asset)
     });
 }
+// performs different operations on grocery list
 groceryManagement = (jsonFile) => {
     let N = input.questionInt("press \n '1' to edit Inventory \n '2' to add new Inventory \n '3' to delete Inventory \n '4' to search by name\n'5' to print Inventory \n :")
     switch (N) {
@@ -141,6 +148,7 @@ groceryManagement = (jsonFile) => {
         }
     }
 }
+// takes name adn phone number as input and outputs the framed sentence *uses regexp
 regexp = () => {
     const user = require('../regularExpressionDemonstration/regularExpressionGettersNSetters')
     let person = new user.details;
@@ -171,6 +179,7 @@ regexp = () => {
     line = line.replace("01-01-2016", date.toDateString());
     console.log(line);
 }
+// to shuffle the cards among 4 players with no of cards for each of them is the input
 deckOfCards = (noOfCards) => {
     let suit = ["Clubs", "Diamons", "Hearts", "Spades"];
     let rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "King", "Queen", "Ace"];
@@ -185,6 +194,7 @@ deckOfCards = (noOfCards) => {
     shuffledCards = cards.sort(() => Math.random() - 0.5)
     console.log(distributeFor4(shuffledCards, noOfCards));
 }
+// distribute each of the shuffled cards among 4 players
 distributeFor4 = (shuffledCards, noOfCards) => {
     let player1 = []
     let player2 = []
