@@ -1,3 +1,4 @@
+//computer is the parent class and children classes are extended from it as shown below
 class computer {
     constructor() {}
 

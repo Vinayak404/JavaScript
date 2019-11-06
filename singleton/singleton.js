@@ -8,6 +8,7 @@
  * @since        : 02-nov-2019
  *
  *********************************************************************/
+// Singleton class allows only one instance to be created by it if more than one instances are created, then it will be pointed to the same memory address.
 try {
     var Singleton = () => {
         var instance;

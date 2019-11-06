@@ -8,6 +8,7 @@
  * @since        : 02-nov-2019
  *
  *********************************************************************/
+// this des9ign pattern monitors the actions performed
 try {
     var subject = function () {
         let observers = []
@@ -30,7 +31,7 @@ try {
             },
             notifyAllObservers() {
                 for (i = 0; i < observers.length; i++) {
-                    observers[i].notify(i)
+                    observers[i].notify();
                 };
             }
         }

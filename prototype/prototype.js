@@ -9,32 +9,33 @@
  *
  *********************************************************************/
 try {
-    function student(name, age, address) {
-        this.name = name;
-        this.age = age;
-        this.address = address;
-        this.say = () => {
-            console.log("Student name is " + this.name + " and age is " + this.age + " address " + this.address);
-        };
-
+    class employee {
+        constructor(name, age, address) {
+            this.name = name;
+            this.age = age;
+            this.address = address;
+            this.say = () => {
+                console.log("Employee name is " + this.name + " and age is " + this.age + " address " + this.address);
+            };
+        }
     }
 
-    function studentPrototype(proto) {
+    function employeePrototype(proto) {
         this.proto = proto;
-        this.nick = function () {
-            var std = new student();
-            std.name = proto.name;
-            std.age = proto.age;
-            std.address = proto.address;
-            return std;
+        this.clone = function () {
+            var emp1 = new employee;
+            emp1.name = proto.name;
+            emp1.age = proto.age;
+            emp1.address = proto.address;
+            return emp1;
         };
     }
 
     function run() {
-        var proto = new student('Karan', '18', 'Bengaluru');
-        var prototype = new studentPrototype(proto);
-        var std = prototype.nick();
-        std.say();
+        var proto = new employee('Karan', '25', 'Bengaluru');
+        var prototype = new employeePrototype(proto);
+        var emp = prototype.clone();
+        emp.say();
     }
     run();
 } catch (e) {
