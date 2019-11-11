@@ -1,3 +1,8 @@
+/**
+ * @description : To read the file for numbers and add them to ordered linked list and search for the given number.
+ * @param {num}, user input
+ * @return {lList}, returning the position of number if found, else update the number into the list.
+ */
 const LLD = require('../Utilities/Linked_list_Utility');
 let fs = require('fs')
 file = fs.readFileSync("../OrderedLL/fileDS2.txt")
@@ -20,4 +25,6 @@ ifFoundAddElseDel = (num) => {
     fs.writeFileSync("../OrderedLL/fileDS2.txt", arr.join(' '))
     lLIst.printList()
 }
-module.exports = { ifFoundAddElseDel }
+module.exports = {
+    ifFoundAddElseDel
+}

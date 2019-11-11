@@ -1,3 +1,8 @@
+/**
+* @description : To print the calender of a month of a year using a 2D array.
+* @param {d0,md}, user input
+* @return {arr}, returning the array of the calender elements .
+*/
 getCal = (d0, md) => {
     try {
         let matrix = [];
@@ -23,4 +28,3 @@ getCal = (d0, md) => {
     }
 }
 module.exports = { getCal }
-

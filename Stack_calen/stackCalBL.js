@@ -1,3 +1,8 @@
+/**
+ * @description :To print the calender of a month of a year using queue operations.
+ * @param {month,year}, user input
+ * @return {calender}, returning the calender of month,year.
+ */
 const Qu = require('../Utilities/queue')
 const Stck = require('../Utilities/stack')
 const leapYear = require('../../Functional/Leap_year/Leap_yearBL')
@@ -9,14 +14,11 @@ CalenQS = (month, year) => {
     let days = ['Sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
     if (leapYear.Leap_yr(year) && month == 2) {
         md = 29
-    }
-    else if (!leapYear.Leap_yr(year) && month == 2) {
+    } else if (!leapYear.Leap_yr(year) && month == 2) {
         md = 28
-    }
-    else if ([1, 3, 5, 7, 8, 10, 12].includes(month)) {
+    } else if ([1, 3, 5, 7, 8, 10, 12].includes(month)) {
         md = 31
-    }
-    else if ([4, 6, 9, 11].includes(month)) {
+    } else if ([4, 6, 9, 11].includes(month)) {
         md = 30
     }
     var k = md;
@@ -30,12 +32,17 @@ CalenQS = (month, year) => {
                 k--;
                 W = W + 7;
             } else Qlines.enqueue('   ')
-        }; calStk.push(Qlines)
-    } let Qdays = new Qu.Queue
+        };
+        calStk.push(Qlines)
+    }
+    let Qdays = new Qu.Queue
     for (let i = 0; i < 7; i++) {
         s
         Qdays.enqueue(days[6 - i])
-    } calStk.push(Qdays)
+    }
+    calStk.push(Qdays)
     return calStk
 }
-module.exports = { CalenQS }
+module.exports = {
+    CalenQS
+}

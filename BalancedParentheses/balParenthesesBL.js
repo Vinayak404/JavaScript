@@ -1,3 +1,8 @@
+/**
+ * @description : To check if the parentheses arte balanced.
+ * @param {exp}, expression
+ * @return {boolean }, returning true or false.
+ */
 BalParentheses = (exp) => {
     const Stk = require('../Utilities/stack');
     arr = exp.toString().split('');
@@ -5,11 +10,9 @@ BalParentheses = (exp) => {
     arr.forEach(element => {
         if (element == '(' || element == '[' || element == '{') {
             Stack1.push(element)
-        }
-        else if (element == ')' && Stack1.top.data == '(') {
+        } else if (element == ')' && Stack1.top.data == '(') {
             Stack1.pop();
-        }
-        else if (element == ']' && Stack1.top.data == '[') {
+        } else if (element == ']' && Stack1.top.data == '[') {
             Stack1.pop();
         } else if (element == '}' && Stack1.top.data == '{') {
             Stack1.pop();
@@ -22,4 +25,6 @@ BalParentheses = (exp) => {
         console.log("The parentheses are Not Balanced")
     }
 }
-module.exports = { BalParentheses }
+module.exports = {
+    BalParentheses
+}

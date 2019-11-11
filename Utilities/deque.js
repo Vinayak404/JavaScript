@@ -81,6 +81,3 @@ class Deque {
     }
 }
 module.exports = { Deque }
-
-let dq = new Deque
-dq.insert(5)

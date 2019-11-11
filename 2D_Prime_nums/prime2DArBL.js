@@ -1,3 +1,8 @@
+/**
+ * @description : To print the prime numbers upto 1000.
+ * @param {n}, user input
+ * @return {str}, returning prime values.
+ */
 const pNums = require('../../Algorithm problems/Algorithms/Prime_Anagram_palindrome/Utility_PrimeAnagramPalindrome')
 prime2D = (n) => {
     try {
@@ -5,10 +10,9 @@ prime2D = (n) => {
 
         for (let i = 0; i < n / 100; i++) {
 
-            let arr = [];
-            {
+            let arr = []; {
                 for (let j = i * 100; j <= (i + 1) * 100; j++) {
-                    if (pNums.Prime(j))                 //check in util method
+                    if (pNums.Prime(j)) //check in util method
                         arr.push(j);
                 }
 
@@ -25,10 +29,11 @@ prime2D = (n) => {
             })
             console.log(str);
         })
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e.name)
         console.log(e.message)
     }
 }
-module.exports = { prime2D }
+module.exports = {
+    prime2D
+}

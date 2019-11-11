@@ -1,3 +1,13 @@
+/********************************************************************************************************************
+* @Execution : default node : cmd> arrayCal.js
+* @Purpose : to study the functionals working.
+* @description :To print the calender of a month of a year using a 2D array.
+* @overview : To find out the no.of days in a week and the day the months starts with using the previous functions and to print.
+             entire month calender.
+* @author : Vinayaka S V <vinayakavastrad@gmail.com>
+* @version : 1.0
+* @since : 17-October-2019
+*******************************************************************************************************************/
 const dow = require('../../Algorithm problems/Algorithms/Day_of_Week/DayOfWeekBL')
 const LY = require('../../Functional/Leap_year/Leap_yearBL')
 const cal = require('../2D_arrayCal/arrayCalBl')
