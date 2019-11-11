@@ -1,8 +1,8 @@
 /********************************************************************
- * @Execution    : factoryMain.js
- * @description  : To build a factory design pattern.
+ * @Execution    : singleton.js
+ * @description  : To build a Singleton design pattern.
  * @overview     : DesignPatterns
- * @file         : factory
+ * @file         : singleton
  * @author       : Vinayaka S V<vinayakavastrad@gmail.com>
  * @version      : v12.10.0
  * @since        : 02-nov-2019

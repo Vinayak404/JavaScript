@@ -1,8 +1,8 @@
 /********************************************************************
- * @Execution    : factoryMain.js
- * @description  : To build a factory design pattern.
+ * @Execution    : prototype.js
+ * @description  : To build a prototype design pattern.
  * @overview     : DesignPatterns
- * @file         : factory
+ * @file         : prototype
  * @author       : Vinayaka S V<vinayakavastrad@gmail.com>
  * @version      : v12.10.0
  * @since        : 02-nov-2019
